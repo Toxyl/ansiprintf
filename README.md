@@ -11,7 +11,13 @@ Resets all formatting.
 Sets the foreground color to an int (`N`), ranging from 0 to 255. 
 
 ### `%*N>`
-Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following bold. 
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following **bold**. 
+
+### `%_N>`
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following __underlined__. 
+
+### `%~N>`
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following *italic*. 
 
 ### `%bN>`
 Sets the background color to an int (`N`), ranging from 0 to 255. 
@@ -26,5 +32,5 @@ Sets the background color to an int (`N`) and then the foreground color to an in
 ```
 cp ansiprintf /usr/local/bin/ansiprintf
 chmod +x /usr/local/bin/ansiprintf
-ansiprintf "%*2>%s%rst> is working! Run it without parameters to see examples of how to use it" "ansiprintf"
+ansiprintf
 ```

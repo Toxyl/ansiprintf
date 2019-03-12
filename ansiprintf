@@ -3,42 +3,40 @@
 	function help()
 	{
 		$examples = [
-			"%f1> %s %rst> %f2> %s %rst>" => [ "Hello", "World" ],
-			"%f3> %s %rst> %f4> %s %rst>" => [ "Hello", "World" ],
-			"%f5> %s %rst> %f6> %s %rst>" => [ "Hello", "World" ],
-			"%f7> %s %rst> %f8> %s %rst>" => [ "Hello", "World" ],
-			"%f9> %s %rst> %f10> %s %rst>" => [ "Hello", "World" ],
-			"%f11> %s %rst> %f12> %s %rst>" => [ "Hello", "World" ],
-			"%f13> %s %rst> %f14> %s %rst>" => [ "Hello", "World" ],
-			"%f15> %s %rst> %f16> %s %rst>" => [ "Hello", "World" ],
+			"%f1> %s %rst> %f2> %s %rst> %f3> %s %rst> %f4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%f5> %s %rst> %f6> %s %rst> %f7> %s %rst> %f8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%f9> %s %rst> %f10> %s %rst> %f11> %s %rst> %f12> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%f13> %s %rst> %f14> %s %rst> %f15> %s %rst> %f16> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+		
+			"%*1> %s %rst> %*2> %s %rst> %*3> %s %rst> %*4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%*5> %s %rst> %*6> %s %rst> %*7> %s %rst> %*8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%*9> %s %rst> %*10> %s %rst> %*11> %s %rst> %*12> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%*13> %s %rst> %*14> %s %rst> %*15> %s %rst> %*16> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+
+			"%~1> %s %rst> %~2> %s %rst> %~3> %s %rst> %~4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%~5> %s %rst> %~6> %s %rst> %~7> %s %rst> %~8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%~9> %s %rst> %~10> %s %rst> %~11> %s %rst> %~12> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%~13> %s %rst> %~14> %s %rst> %~15> %s %rst> %~16> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
 			
-			"%*1> %s %rst> %*2> %s %rst>" => [ "Hello", "World" ],
-			"%*3> %s %rst> %*4> %s %rst>" => [ "Hello", "World" ],
-			"%*5> %s %rst> %*6> %s %rst>" => [ "Hello", "World" ],
-			"%*7> %s %rst> %*8> %s %rst>" => [ "Hello", "World" ],
-			"%*9> %s %rst> %*10> %s %rst>" => [ "Hello", "World" ],
-			"%*11> %s %rst> %*12> %s %rst>" => [ "Hello", "World" ],
-			"%*13> %s %rst> %*14> %s %rst>" => [ "Hello", "World" ],
-			"%*15> %s %rst> %*16> %s %rst>" => [ "Hello", "World" ],
+			"%_1> %s %rst> %_2> %s %rst> %_3> %s %rst> %_4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%_5> %s %rst> %_6> %s %rst> %_7> %s %rst> %_8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%_9> %s %rst> %_10> %s %rst> %_11> %s %rst> %_12> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%_13> %s %rst> %_14> %s %rst> %_15> %s %rst> %_16> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+	
+			"%b1> %s %rst> %b2> %s %rst> %b3> %s %rst> %b4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%b5> %s %rst> %b6> %s %rst> %b7> %s %rst> %b8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%b9> %s %rst> %b10> %s %rst> %b11> %s %rst> %b12> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%b13> %s %rst> %b14> %s %rst> %b15> %s %rst> %b16> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
 
-			"%b1> %s %rst> %b2> %s %rst>" => [ "Hello", "World" ],
-			"%b3> %s %rst> %b4> %s %rst>" => [ "Hello", "World" ],
-			"%b5> %s %rst> %b6> %s %rst>" => [ "Hello", "World" ],
-			"%b7> %s %rst> %b8> %s %rst>" => [ "Hello", "World" ],
-			"%b9> %s %rst> %b10> %s %rst>" => [ "Hello", "World" ],
-			"%b11> %s %rst> %b12> %s %rst>" => [ "Hello", "World" ],
-			"%b13> %s %rst> %b14> %s %rst>" => [ "Hello", "World" ],
-			"%b15> %s %rst> %b16> %s %rst>" => [ "Hello", "World" ],
+			"%fb16,1> %s %rst> %fb15,2> %s %rst> %fb14,3> %s %rst> %fb13,4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%fb12,5> %s %rst> %fb11,6> %s %rst> %fb10,7> %s %rst> %fb9,8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%fb8,9> %s %rst> %fb7,10> %s %rst> %fb6,11> %s %rst> %fb5,12> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%fb4,13> %s %rst> %fb3,14> %s %rst> %fb2,15> %s %rst> %fb1,16> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
 
-			"%fb1,2> %s %rst> %bf1,2> %s %rst>" => [ "Hello", "World" ],
-			"%fb3,4> %s %rst> %bf3,4> %s %rst>" => [ "Hello", "World" ],
-			"%fb5,6> %s %rst> %bf5,6> %s %rst>" => [ "Hello", "World" ],
-			"%fb7,8> %s %rst> %bf7,8> %s %rst>" => [ "Hello", "World" ],
-			"%fb9,10> %s %rst> %bf9,10> %s %rst>" => [ "Hello", "World" ],
-			"%fb11,12> %s %rst> %bf11,12> %s %rst>" => [ "Hello", "World" ],
-			"%fb13,14> %s %rst> %bf13,14> %s %rst>" => [ "Hello", "World" ],
-			"%fb15,16> %s %rst> %bf15,16> %s %rst>" => [ "Hello", "World" ],
-
+			"%bf16,1> %s %rst> %bf15,2> %s %rst> %bf14,3> %s %rst> %bf13,4> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%bf12,5> %s %rst> %bf11,6> %s %rst> %bf10,7> %s %rst> %bf9,8> %s %rst>" => [ "Hello", "World" , "Hello", "World" ],
+			"%bf8,9> %s %rst> %bf7,10> %s %rst> %bf6,11> %s %rst> %bf5,12> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
+			"%bf4,13> %s %rst> %bf3,14> %s %rst> %bf2,15> %s %rst> %bf1,16> %s %rst>" => [ "Hello", "World", "Hello", "World" ],
 		];
 
 		// calculate length of command, so we can automatically align the results
@@ -77,7 +75,7 @@
 	
 	function ansify($str)
 	{
-		preg_match_all('/%(\*|r|f|b|bf|fb)(\d+|st)(?:,(\d+)){0,1}>/', $str, $matches, PREG_SET_ORDER);
+		preg_match_all('/%(~|_|\*|r|f|b|bf|fb)(\d+|st)(?:,(\d+)){0,1}>/', $str, $matches, PREG_SET_ORDER);
 		foreach ($matches as $match) 
 		{
 			$fg = "";
@@ -88,6 +86,14 @@
 				case 'r': # reset
 					if ($match[2] == 'st')
 						$fg = "\e[0m";
+					break;
+
+				case '_': # underline
+					$fg = "\e[4m\e[38;5;" . $match[2] . "m";
+					break;
+
+				case '~': # italic
+					$fg = "\e[3m\e[38;5;" . $match[2] . "m";
 					break;
 
 				case '*': # bold
