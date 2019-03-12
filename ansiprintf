@@ -1,0 +1,144 @@
+#!/usr/bin/php
+<?php 
+	function help()
+	{
+		$examples = [
+			"%f1> %s %rst> %f2> %s %rst>" => [ "Hello", "World" ],
+			"%f3> %s %rst> %f4> %s %rst>" => [ "Hello", "World" ],
+			"%f5> %s %rst> %f6> %s %rst>" => [ "Hello", "World" ],
+			"%f7> %s %rst> %f8> %s %rst>" => [ "Hello", "World" ],
+			"%f9> %s %rst> %f10> %s %rst>" => [ "Hello", "World" ],
+			"%f11> %s %rst> %f12> %s %rst>" => [ "Hello", "World" ],
+			"%f13> %s %rst> %f14> %s %rst>" => [ "Hello", "World" ],
+			"%f15> %s %rst> %f16> %s %rst>" => [ "Hello", "World" ],
+			
+			"%*1> %s %rst> %*2> %s %rst>" => [ "Hello", "World" ],
+			"%*3> %s %rst> %*4> %s %rst>" => [ "Hello", "World" ],
+			"%*5> %s %rst> %*6> %s %rst>" => [ "Hello", "World" ],
+			"%*7> %s %rst> %*8> %s %rst>" => [ "Hello", "World" ],
+			"%*9> %s %rst> %*10> %s %rst>" => [ "Hello", "World" ],
+			"%*11> %s %rst> %*12> %s %rst>" => [ "Hello", "World" ],
+			"%*13> %s %rst> %*14> %s %rst>" => [ "Hello", "World" ],
+			"%*15> %s %rst> %*16> %s %rst>" => [ "Hello", "World" ],
+
+			"%b1> %s %rst> %b2> %s %rst>" => [ "Hello", "World" ],
+			"%b3> %s %rst> %b4> %s %rst>" => [ "Hello", "World" ],
+			"%b5> %s %rst> %b6> %s %rst>" => [ "Hello", "World" ],
+			"%b7> %s %rst> %b8> %s %rst>" => [ "Hello", "World" ],
+			"%b9> %s %rst> %b10> %s %rst>" => [ "Hello", "World" ],
+			"%b11> %s %rst> %b12> %s %rst>" => [ "Hello", "World" ],
+			"%b13> %s %rst> %b14> %s %rst>" => [ "Hello", "World" ],
+			"%b15> %s %rst> %b16> %s %rst>" => [ "Hello", "World" ],
+
+			"%fb1,2> %s %rst> %bf1,2> %s %rst>" => [ "Hello", "World" ],
+			"%fb3,4> %s %rst> %bf3,4> %s %rst>" => [ "Hello", "World" ],
+			"%fb5,6> %s %rst> %bf5,6> %s %rst>" => [ "Hello", "World" ],
+			"%fb7,8> %s %rst> %bf7,8> %s %rst>" => [ "Hello", "World" ],
+			"%fb9,10> %s %rst> %bf9,10> %s %rst>" => [ "Hello", "World" ],
+			"%fb11,12> %s %rst> %bf11,12> %s %rst>" => [ "Hello", "World" ],
+			"%fb13,14> %s %rst> %bf13,14> %s %rst>" => [ "Hello", "World" ],
+			"%fb15,16> %s %rst> %bf15,16> %s %rst>" => [ "Hello", "World" ],
+
+		];
+
+		// calculate length of command, so we can automatically align the results
+		$sl = array_reduce(
+		    array_keys($examples),
+		    function($res, $a) 
+		    { 
+		    	if (strlen($a) > $res)
+		    		return strlen($a);
+		    	return $res;  
+		    },
+		    0
+		) + array_reduce(
+		    array_values($examples),
+		    function($res, $a) 
+		    { 
+		    	$a = ' "' . implode("\" \"", $a) . '" ';
+		    	if (strlen($a) > $res)
+		    		return strlen($a);
+		    	return $res;  
+		    },
+		    0
+		) + 5;
+
+		$h  = "Usage:    ansiprintf [format] [param 1] .. [param n]\n";	
+		$h .= "Examples: \n";
+		$h .= "                     " . str_pad('Format', $sl-1) . " Result\n";
+
+		foreach ($examples as $format => $values) 
+		{
+			$v = str_pad("\"$format\" \"" . implode("\" \"", $values) . "\"", $sl);
+			$h .= "          ansiprintf $v".ansiprintf($format, $values)."\n";	
+		}
+		return $h;
+	}
+	
+	function ansify($str)
+	{
+		preg_match_all('/%(\*|r|f|b|bf|fb)(\d+|st)(?:,(\d+)){0,1}>/', $str, $matches, PREG_SET_ORDER);
+		foreach ($matches as $match) 
+		{
+			$fg = "";
+			$bg = "";
+
+			switch ($match[1]) 
+			{
+				case 'r': # reset
+					if ($match[2] == 'st')
+						$fg = "\e[0m";
+					break;
+
+				case '*': # bold
+					$fg = "\e[1m\e[38;5;" . $match[2] . "m";
+					break;
+
+				case 'f': # foreground
+					$fg = "\e[38;5;" . $match[2] . "m";
+					break;
+				
+				case 'b': # background
+					$bg = "\e[48;5;" . $match[2] . "m";
+					break;
+
+				case 'bf': # both, background first
+					$bg = "\e[48;5;" . $match[2] . "m";
+					$fg = "\e[38;5;" . $match[3] . "m";
+					break;
+
+				case 'fb': # both, foreground first
+					$fg = "\e[38;5;" . $match[2] . "m";
+					$bg = "\e[48;5;" . $match[3] . "m";
+					break;
+
+				default: # error
+					break;
+			}
+
+			$str = str_replace($match[0], $bg.$fg, $str);
+		}
+		return $str;
+	}
+
+	function ansiprintf($fmt, $val)
+	{
+		$fmt = ansify($fmt);
+		array_unshift($val, $fmt);
+		$res = call_user_func_array('sprintf', $val);
+		return $res;
+	}
+
+    $args = $_SERVER['argv'];
+
+	if (count($args) < 2)
+	{
+		echo help(); 
+	}
+	else
+	{
+		array_shift($args);
+		$str = ansiprintf(array_shift($args), $args);
+		echo $str;
+	}
+?>
