@@ -1,6 +1,4 @@
 # ansiprintf
-A small PHP script that extends sprintf with shorthands for ANSI formatting.
-
 The idea is to extend the `sprintf` function of PHP with ANSI capabilities for terminal output under Linux. All functionality of `sprintf` should have been retained (untested though!) whilst adding a few new constructs:
 
 ## Commands
