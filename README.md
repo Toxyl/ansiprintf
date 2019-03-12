@@ -14,7 +14,7 @@ Sets the foreground color to an int (`N`), ranging from 0 to 255.
 Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following **bold**. 
 
 ### `%_N>`
-Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following __underlined__. 
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following _underlined_. 
 
 ### `%~N>`
 Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following *italic*. 
