@@ -30,6 +30,8 @@ Sets the background color to an int (`N`) and then the foreground color to an in
 
 ## Installation
 ```
+git clone https://github.com/Toxyl/ansiprintf.git
+cd ansiprintf
 cp ansiprintf /usr/local/bin/ansiprintf
 chmod +x /usr/local/bin/ansiprintf
 ansiprintf
