@@ -26,5 +26,5 @@ Sets the background color to an int (`N`) and then the foreground color to an in
 ```
 cp ansiprintf /usr/local/bin/ansiprintf
 chmod +x /usr/local/bin/ansiprintf
-ansiprintf "%*2>%s%rst> is working!"
+ansiprintf "%*2>%s%rst> is working! Run it without parameters to see examples of how to use it" "ansiprintf"
 ```
