@@ -11,13 +11,13 @@ Resets all formatting.
 Sets the foreground color to an int (`N`), ranging from 0 to 255. 
 
 ### `%*N>`
-Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following **bold**. 
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following bold. 
 
 ### `%_N>`
-Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following _underlined_. 
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following underlined. 
 
 ### `%~N>`
-Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following *italic*. 
+Sets the foreground color to an int (`N`) ranging from 0 to 255 and prints the following italic. 
 
 ### `%bN>`
 Sets the background color to an int (`N`), ranging from 0 to 255. 
