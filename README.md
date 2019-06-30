@@ -5,6 +5,9 @@ The idea is to extend the `sprintf` function of PHP with ANSI capabilities for t
 ### `%rst>`
 Resets all formatting. 
 
+### `%ln>`
+Inserts a line break.
+
 ### `%fN>`
 Sets the foreground color to an int (`N`), ranging from 0 to 255. 
 
