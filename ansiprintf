@@ -75,7 +75,7 @@
 	
 	function ansify($str)
 	{
-		preg_match_all('/%(~|_|\*|r|f|b|bf|fb)(\d+|st)(?:,(\d+)){0,1}>/', $str, $matches, PREG_SET_ORDER);
+		preg_match_all('/%(~|_|\*|l|r|f|b|bf|fb)(\d+|st|n)(?:,(\d+)){0,1}>/', $str, $matches, PREG_SET_ORDER);
 		foreach ($matches as $match) 
 		{
 			$fg = "";
@@ -86,6 +86,11 @@
 				case 'r': # reset
 					if ($match[2] == 'st')
 						$fg = "\e[0m";
+					break;
+
+				case 'l':
+					if ($match[2] == 'n') # new line
+						$fg = "\n";
 					break;
 
 				case '_': # underline
